@@ -60,6 +60,8 @@ public class ServletUsers extends HttpServlet {
                 String prenom = request.getParameter("prenom");
                 String login = request.getParameter("login");
                 gestionnaireUtilisateurs.creeUtilisateur(nom, prenom, login);
+                Collection<Utilisateur> liste = gestionnaireUtilisateurs.getAllUsers();
+                request.setAttribute("listeDesUsers", liste);
                 forwardTo = "index.jsp?action=listerLesUtilisateurs";
                 message = "Liste des utilisateurs";
 
